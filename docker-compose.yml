@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13         # Usa a imagem oficial do PostgreSQL na versão 13
+    container_name: postgres_zapzap
+    restart: always
+    environment:
+      POSTGRES_DB: zapzap      # Nome do banco de dados
+      POSTGRES_USER: root      # Nome de usuário
+      POSTGRES_PASSWORD: root  # Senha do usuário
+    ports:
+      - "5432:5432"            # Mapeia a porta 5432 do contêiner para a porta 5432 da sua máquina
+    volumes:
+      - pg_data:/var/lib/postgresql/data # Volume persistente para os dados do banco
+
+volumes:
+  pg_data:
+    driver: local              # Usa o driver local para persistência de dados
