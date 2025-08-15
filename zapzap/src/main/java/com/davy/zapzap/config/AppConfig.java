@@ -28,7 +28,7 @@ public class AppConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/api/**").authenticated()
-                        .anyRequest().permitAll().and().addFilterBefore()
+                        .anyRequest().permitAll().and().addFilterBefore(null, null)
                 )
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(request -> {
